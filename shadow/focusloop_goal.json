@@ -1,0 +1,38 @@
+{
+  "objective": "完成知乎 AI Works 参赛项目 FocusLoop v1",
+  "deliverables": [
+    "可演示的影子模式原型，能自动生成摘要并判断目标漂移",
+    "PRD、技术方案、验证记录文档完整",
+    "用真实开发过程验证准确性，包含至少 10 个标注案例",
+    "准确率、误报率、成本的量化统计",
+    "Gate 1/2/3 核心逻辑实现（Python + SQLite）",
+    "统一 MCP Server（15 工具，stdio JSON-RPC）",
+    "多平台适配验证（Trae + Hermes）"
+  ],
+  "dev_activities": [
+    "开发环境验证（CLI 工具可用，Claude Code 登录）",
+    "pytest 测试与回归验证",
+    "Shell 脚本开发（run_shadow.sh 等）",
+    "Gate 2 规则迭代与安全规则修复",
+    "PRD 与技术文档更新维护",
+    "多平台适配与 MCP Server 接入验证",
+    "标注数据收集与定量指标统计"
+  ],
+  "constraints": [
+    "首版只判断目标被替换、范围擅自扩大、决策被遗忘",
+    "正常排障、必要探索、用户授权改目标不应误报",
+    "影子模式只记录判断，不自动阻断或修改目标"
+  ],
+  "non_goals": [
+    "暂不做独立插件界面",
+    "暂不支持多宿主（Codex、Cursor）",
+    "暂不做商业化设计或付费订阅",
+    "不做通用事实核查或安全沙箱"
+  ],
+  "acceptance": [
+    "Gate 1/2/3 影子验证通过",
+    "统一 MCP Server 可被客户端调用",
+    "真实 Trae Gate 2 调用返回 block"
+  ],
+  "stage": "实现、真实开发验证、平台接入验收"
+}

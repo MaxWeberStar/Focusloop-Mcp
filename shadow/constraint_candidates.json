@@ -1,0 +1,10 @@
+[
+  {"id":"c001","text":"Skill、插件与 MCP 载体未锁定前，不擅自选定或实现特定宿主绑定","source":"PRD","confidence":"high"},
+  {"id":"c002","text":"市场报告中「市场空白」的判断视为待验证假设，不能作为已确立事实用于产品设计","source":"PRD","confidence":"high"},
+  {"id":"c003","text":"自然语言建议/提议不能直接当作用户确认，必须有显式的用户确认操作","source":"技术方案","confidence":"high"},
+  {"id":"c004","text":"关键词变化、工具调用次数增加、新建文件均不能单独作为漂移判定依据","source":"PRD","confidence":"high"},
+  {"id":"c005","text":"禁止无限重试和每回合重复请求同一确认","source":"PRD","confidence":"high"},
+  {"id":"c006","text":"FocusLoop 不宣称能直接推断用户未表达的意图，「真实需求」以用户表达和确认的记录为依据","source":"PRD","confidence":"high"},
+  {"id":"c007","text":"影子模式阶段 FocusLoop 只记录判断结果，不自动阻断执行或修改目标","source":"技术方案","confidence":"high"},
+  {"id":"c008","text":"hooks 只能观察实际提供的事件，不能假定拥有完整意图或全部副作用，事后检查不能撤销已发生的行动","source":"技术方案","confidence":"high"}
+]

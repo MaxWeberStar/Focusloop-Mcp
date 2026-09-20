@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "version": 1,
+    "created_at": "2026-09-20",
+    "description": "FocusLoop 闸口2：隐私/规则破坏检测规则库"
+  },
+  "rules": [
+    {
+      "id": "g2-001",
+      "category": "data_exfiltration",
+      "pattern": ".*[Dd]ropbox.*|.*[Gg]oogle[_-][Dd]rive.*|.*[Ss]3.*|.*upload.*|.*transfer.*|.*scp.*|.*rsync.*|.*ftp.*",
+      "tool": "bash",
+      "arg_key": "command",
+      "severity": "critical",
+      "action": "block",
+      "user_message": "检测到可能的数据外传操作：{match}，是否继续？",
+      "constraint_ref": null
+    },
+    {
+      "id": "g2-002",
+      "category": "data_exfiltration",
+      "pattern": ".*curl.*-X\\s*(POST|PUT|DELETE).*|.*wget.*|.*fetch.*",
+      "tool": "bash",
+      "arg_key": "command",
+      "severity": "high",
+      "action": "block",
+      "user_message": "检测到网络请求操作：{match}，是否继续？",
+      "constraint_ref": null
+    },
+    {
+      "id": "g2-003",
+      "category": "system_change",
+      "pattern": ".*pip\\s+install.*|.*npm\\s+install.*|.*yarn\\s+add.*|.*gem\\s+install.*|.*brew\\s+install.*|.*apt\\s+install.*|.*yum\\s+install.*|.*uv\\s+pip.*",
+      "tool": "bash",
+      "arg_key": "command",
+      "severity": "medium",
+      "action": "block",
+      "user_message": "检测到包安装操作：{match}，是否继续？",
+      "constraint_ref": null
+    },
+    {
+      "id": "g2-004",
+      "category": "scope_change",
+      "pattern": ".*Codex.*|.*Cursor.*|.*Claude\\s+Code.*|.*@anthropic.*plugin.*|.*dsh[_-]plugin.*",
+      "tool": "*",
+      "arg_key": "command",
+      "severity": "high",
+      "action": "block",
+      "user_message": "检测到可能的宿主/插件绑定操作：{match}，当前项目尚未选定载体，是否继续？",
+      "constraint_ref": "c001"
+    },
+    {
+      "id": "g2-005",
+      "category": "file_change",
+      "pattern": ".*rm\\s+-[rf].*__pycache__|.*rm\\s+-[rf].*[.]git/|.*rm\\s+-[rf].*[.]cache",
+      "tool": "bash",
+      "arg_key": "command",
+      "severity": "medium",
+      "action": "block",
+      "user_message": "检测到文件删除操作（rm -rf __pycache__/.git/.cache 等常见清理除外）：{match}，是否继续？",
+      "constraint_ref": null
+    },
+    {
+      "id": "g2-006",
+      "category": "file_change",
+      "pattern": ".*>\\s*/dev/sd[a-z].*|.*dd\\s+if=.*of=/dev/.*",
+      "tool": "bash",
+      "arg_key": "command",
+      "severity": "critical",
+      "action": "block",
+      "user_message": "检测到危险磁盘写入操作：{match}，是否继续？",
+      "constraint_ref": null
+    }
+  ]
+}

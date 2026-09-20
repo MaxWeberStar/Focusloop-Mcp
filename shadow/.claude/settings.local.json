@@ -1,0 +1,7 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [{"hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/focusloop.py\" --db \"$CLAUDE_PROJECT_DIR/.focusloop/state.sqlite3\" hook", "timeout": 10}]}],
+    "PreToolUse": [{"matcher": ".*", "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/focusloop.py\" --db \"$CLAUDE_PROJECT_DIR/.focusloop/state.sqlite3\" hook", "timeout": 10}]}],
+    "PostToolUse": [{"matcher": ".*", "hooks": [{"type": "command", "command": "python3 \"$CLAUDE_PROJECT_DIR/focusloop.py\" --db \"$CLAUDE_PROJECT_DIR/.focusloop/state.sqlite3\" hook", "timeout": 10}]}]
+  }
+}

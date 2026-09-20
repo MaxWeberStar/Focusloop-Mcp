@@ -1,0 +1,4 @@
+.venv/
+.focusloop/
+__pycache__/
+.pytest_cache/
